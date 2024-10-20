@@ -1,26 +1,30 @@
 
 import pyttsx3 as tts
 
-engine = tts.init()
+text = ""
 
-text = input("\ntype the text: ")
+while True :
 
-#speed setting:
-speed = input("choose the speed of audio (slow ,normal ,fast): ").lower()
-speed_rate = {
-    "slow" : 80 ,
-    "normal" : 200 ,
-    "fast" : 300 
-}
+    engine = tts.init()
 
-engine.setProperty("rate" ,speed_rate[speed])
+    text = input("\ntype the text: ")
 
-#voice setting:
-voice_gender = int(input("choose the gender (0=male ,2=female): "))
+    #speed setting:
+    speed = input("choose the speed of audio (slow ,normal ,fast): ").lower()
+    speed_rate = {
+        "slow" : 80 ,
+        "normal" : 200 ,
+        "fast" : 300 
+    }
 
-voices = engine.getProperty('voices')
-engine.setProperty("voice" ,voices[voice_gender].id)
+    engine.setProperty("rate" ,speed_rate[speed])
 
-#voice run:
-engine.say(text)
-engine.runAndWait()
+    #voice setting:
+    voice_gender = int(input("choose the gender (0=male ,2=female): "))
+
+    voices = engine.getProperty('voices')
+    engine.setProperty("voice" ,voices[voice_gender].id)
+
+    #voice run:
+    engine.say(text)
+    engine.runAndWait()
