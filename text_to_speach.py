@@ -7,8 +7,9 @@ while True :
 
     engine = tts.init()
 
-    text = input("\ntype the text: ")
-
+    text = input("\ntype the text (end = end the program): ")
+    if text == "end":
+        break
     #speed setting:
     speed = input("choose the speed of audio (slow ,normal ,fast): ").lower()
     speed_rate = {
@@ -28,3 +29,5 @@ while True :
     #voice run:
     engine.say(text)
     engine.runAndWait()
+
+print("program ended\n")
